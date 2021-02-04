@@ -323,6 +323,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 309b30446993d594fb08249c4528cdab, type: 3}
   - {fileID: 21300000, guid: 406d3b2eac0c6a3408502e81a6a84a56, type: 3}
   - {fileID: 21300000, guid: 5bea075f38a98be4d9dd98208ac2366d, type: 3}
+  - {fileID: 0}
   endGame: {fileID: 21300000, guid: 9948a02cec74ca2449133d80a4b0fce6, type: 3}
   image: {fileID: 1496181366}
   video: {fileID: 1370851891}
