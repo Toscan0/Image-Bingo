@@ -323,7 +323,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 309b30446993d594fb08249c4528cdab, type: 3}
   - {fileID: 21300000, guid: 406d3b2eac0c6a3408502e81a6a84a56, type: 3}
   - {fileID: 21300000, guid: 5bea075f38a98be4d9dd98208ac2366d, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 261165e92a4d66840a45c5218c056103, type: 3}
   endGame: {fileID: 21300000, guid: 9948a02cec74ca2449133d80a4b0fce6, type: 3}
   image: {fileID: 1496181366}
   video: {fileID: 1370851891}
@@ -521,7 +521,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370851891}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ac7d4dfde5d13a944888c3c0746394b0, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: f8a780b973567094c806b5df33ec1293, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 519420031}
