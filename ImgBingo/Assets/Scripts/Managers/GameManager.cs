@@ -8,26 +8,34 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private Image bingoImg;
+    [SerializeField]
+    private GameObject video;
+    [SerializeField]
+    private GameObject end;
+
+    [SerializeField]
     private Sprite[] bingoIntro;
     [SerializeField]
     private Sprite[] bingoNumbers;
-    [SerializeField]
-    private Sprite endGame;
 
     private List<int> retrievedInds = new List<int>();
 
     private int indice = 0;
     private bool intro = true;
-    private bool firstTime = true; 
+    private bool firstTime = true;
 
-    public Image image;
-    public GameObject video;
+    private VideoPlayer videoPlayer;
+
+    private void Awake()
+    {
+        videoPlayer = video.GetComponent<VideoPlayer>();
+        videoPlayer.loopPointReached += CheckVideoEnd;
+    }
 
     private void Start()
     {
         GetNextIntroImg();
-
-        video.GetComponent<VideoPlayer>().loopPointReached += CheckEnd; 
     }
 
 
@@ -44,7 +52,7 @@ public class GameManager : MonoBehaviour
             {
                 if (firstTime)
                 {
-                    image.enabled = false;
+                    bingoImg.enabled = false;
                     video.SetActive(true);
                 }
                 else
@@ -63,14 +71,15 @@ public class GameManager : MonoBehaviour
         if (!retrievedInds.Contains(r))
         {
             retrievedInds.Add(r);
-            image.sprite = bingoNumbers[r];
+            bingoImg.sprite = bingoNumbers[r];
         }
         else
         {
             if(retrievedInds.Count == bingoNumbers.Length)
             {
                 // game finished
-                image.sprite = endGame;
+                bingoImg.enabled = false;
+                end.SetActive(true);
             }
             else
             {
@@ -81,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     private void GetNextIntroImg()
     {
-        image.sprite = bingoIntro[indice];
+        bingoImg.sprite = bingoIntro[indice];
         indice++;
 
         if (indice > (bingoIntro.Length - 1))
@@ -90,13 +99,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CheckEnd(UnityEngine.Video.VideoPlayer vp)
+    void CheckVideoEnd(UnityEngine.Video.VideoPlayer vp)
     {
         firstTime = false;
 
-        image.enabled = true;
+        bingoImg.enabled = true;
         video.SetActive(false);
 
         GetRandomBingoInt();
+    }
+
+    private void OnDestroy()
+    {
+        videoPlayer.loopPointReached -= CheckVideoEnd; 
     }
 }
