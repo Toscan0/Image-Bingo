@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using Random = UnityEngine.Random;
 
-public class RandomImg : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public Sprite[] bingoIntro;
-    public Sprite[] bingoNumbers;
-    public Sprite endGame;
+    [SerializeField]
+    private Sprite[] bingoIntro;
+    [SerializeField]
+    private Sprite[] bingoNumbers;
+    [SerializeField]
+    private Sprite endGame;
 
     private List<int> retrievedInds = new List<int>();
 
